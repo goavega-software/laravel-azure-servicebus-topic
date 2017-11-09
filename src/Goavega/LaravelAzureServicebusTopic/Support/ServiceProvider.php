@@ -12,12 +12,15 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      */
 	public function register()
 	{
-		$this->app->booted(function () {
-			$this->app->queue->extend('azure.servicebus', function () {
-				return new AzureConnector;
-			}
-			);
-		}
-		);
+		$manager = $this->app['queue'];
+		$manager->addConnector('azureservicebus', function()
+		{
+			return new AzureConnector();
+		});
+	}
+
+	public function provides() 
+	{
+		return ['azureservicebus'];
 	}
 }

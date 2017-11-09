@@ -1,11 +1,12 @@
 Windows Azure Servicebus Queue driver for Laravel
 =================================================
-
+### Overview
+This package is alpha only and primarily used for queueing laravel events in Service Bus Topics. The primary advantage of using topic based events is that it can be consumed by multiple subscribers. artisan queue:listen is not supported (yet).
 #### Installation
 
 Require this package in your `composer.json`:
 
-	"goavega/laravel-azure-servicebus-topic": "1.*"
+	"goavega-software/laravel-azure-servicebus-topic": "1.1.*"
 
 Run composer update!
 
@@ -16,10 +17,10 @@ After composer update is finished you need to add ServiceProvider to your `provi
 add the following to the `connection` array in `app/config/queue.php`, set your `default` connection to `azure` and fill out your own connection data from the Azure Management portal:
 
 	'azure' => array(
-        'driver'       => 'azure.servicebus',
+        'driver'       => 'azureservicebus',
         'endpoint'     => 'https://*.servicebus.windows.net',
-        'secret'       => '',
-        'secretissuer' => 'owner',
+        'SharedAccessKeyName' => '',
+        'SharedAccessKey' => 'primary key',
         'queue'        => '<topic name>'
     )
 
