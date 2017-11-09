@@ -1,0 +1,28 @@
+{
+    "name": "goavega/laravel-azure-servicebus-topic",
+    "description": "Extending the Laravel queue to support the Microsoft Azure Service Bus Topics.",
+    "keywords": [
+        "laravel",
+        "azure",
+        "servicebus",
+        "topic"
+    ],
+    "license": "MIT",
+    "authors": [{
+        "name": "Goavega Team",
+        "email": "opensource@goavega.com"
+    }],
+    "require": {
+        "php": ">=7.0.10",
+        "illuminate/container": "5.3.*",
+        "illuminate/support": "5.3.*",
+        "illuminate/encryption": "5.3.*",
+        "microsoft/windowsazure": "^0.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Goavega\\LaravelAzureServicebusTopic\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
