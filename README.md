@@ -6,7 +6,7 @@ This package is alpha only and primarily used for queueing laravel events in Ser
 
 Require this package in your `composer.json`:
 
-	"goavega-software/laravel-azure-servicebus": "1.1.*"
+	"goavega-software/laravel-azure-servicebus": "1.2.1"
 
 Run composer update!
 
