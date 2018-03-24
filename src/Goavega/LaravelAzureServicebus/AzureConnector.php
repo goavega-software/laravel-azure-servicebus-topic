@@ -1,5 +1,5 @@
 <?php
-namespace Goavega\LaravelAzureServicebusTopic;
+namespace Goavega\LaravelAzureServicebus;
 
 use WindowsAzure\Common\ServicesBuilder;
 use Illuminate\Queue\Connectors\ConnectorInterface;

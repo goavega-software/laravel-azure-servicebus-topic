@@ -1,5 +1,5 @@
 <?php
-namespace Goavega\LaravelAzureServicebusTopic;
+namespace Goavega\LaravelAzureServicebus;
 
 use Illuminate\Queue\Queue;
 use Illuminate\Contracts\Queue\Queue as QueueContract;
@@ -65,8 +65,11 @@ class AzureQueue extends Queue implements QueueContract
      */
     public function pushRaw($payload, $queue = null, array $options = array())
     {
+        if (is_object($payload)) {
+            $payload = json_encode($payload);
+        }
         $message = new BrokeredMessage($payload);
-        $this->azure->sendTopicMessage($this->getQueue($queue), $message);
+        $this->azure->sendQueueMessage($this->getQueue($queue), $message);
     }
     
     /**

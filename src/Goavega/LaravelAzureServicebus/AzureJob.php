@@ -1,5 +1,5 @@
 <?php
-namespace Goavega\LaravelAzureServicebusTopic;
+namespace Goavega\LaravelAzureServicebus;
 
 use Illuminate\Queue\Jobs\Job;
 use Illuminate\Container\Container;
