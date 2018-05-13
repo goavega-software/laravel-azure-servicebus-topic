@@ -14,9 +14,9 @@
     }],
     "require": {
         "php": ">=7.0.10",
-        "illuminate/container": "5.3.*",
-        "illuminate/support": "5.3.*",
-        "illuminate/encryption": "5.3.*",
+        "illuminate/container": "5.4.*",
+        "illuminate/support": "5.4.*",
+        "illuminate/encryption": "5.4.*",
         "microsoft/windowsazure": "^0.5"
     },
     "autoload": {
