@@ -17,7 +17,7 @@
         "illuminate/container": "5.4.*",
         "illuminate/support": "5.4.*",
         "illuminate/encryption": "5.4.*",
-        "microsoft/windowsazure": "^0.5"
+        "microsoft/windowsazure": "0.5.7"
     },
     "autoload": {
         "psr-4": {
