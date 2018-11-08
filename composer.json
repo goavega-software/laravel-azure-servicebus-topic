@@ -1,6 +1,7 @@
 {
     "name": "goavega-software/laravel-azure-servicebus",
     "description": "Extending the Laravel queue to support the Microsoft Azure Service Bus Queues.",
+    "version": "2.0",
     "keywords": [
         "laravel",
         "azure",
@@ -8,15 +9,17 @@
         "queues"
     ],
     "license": "MIT",
-    "authors": [{
-        "name": "Goavega Team",
-        "email": "opensource@goavega.com"
-    }],
+    "authors": [
+        {
+            "name": "Goavega Team",
+            "email": "opensource@goavega.com"
+        }
+    ],
     "require": {
         "php": ">=7.0.10",
-        "illuminate/container": "5.4.*",
-        "illuminate/support": "5.4.*",
-        "illuminate/encryption": "5.4.*",
+        "illuminate/container": "5.5.*",
+        "illuminate/support": "5.5.*",
+        "illuminate/encryption": "5.5.*",
         "microsoft/windowsazure": "0.5.7"
     },
     "autoload": {
