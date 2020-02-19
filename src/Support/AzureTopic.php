@@ -6,7 +6,7 @@ use Illuminate\Queue\Queue;
 use WindowsAzure\ServiceBus\Internal\IServiceBus;
 use WindowsAzure\ServiceBus\Models\BrokeredMessage;
 
-class AzureQueue extends Queue implements QueueContract
+class AzureTopic extends Queue implements QueueContract
 {
     /**
      * The Azure IServiceBus instance.
@@ -68,7 +68,7 @@ class AzureQueue extends Queue implements QueueContract
             $payload = json_encode($payload);
         }
         $message = new BrokeredMessage($payload);
-        $this->azure->sendQueueMessage($this->getQueue($queue), $message);
+        $this->azure->sendTopicMessage($this->getQueue($queue), $message);
     }
 
     /**

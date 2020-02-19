@@ -1,27 +1,29 @@
 <?php
 namespace Goavega\LaravelAzureServicebus;
 
-use WindowsAzure\Common\ServicesBuilder;
 use Illuminate\Queue\Connectors\ConnectorInterface;
+use WindowsAzure\Common\ServicesBuilder;
 
 class AzureConnector implements ConnectorInterface
 {
-	
-	/**
+
+    /**
      * Establish a queue connection.
      *
      * @param array $config
      *
      * @return \Illuminate\Queue\QueueInterface
      */
-	
-	public function connect(array $config)
-	{
-		$endpoint = $config['endpoint'];
-		$sharedAccessName = $config['SharedAccessKeyName'];
-		$sharedAccessKey = $config['SharedAccessKey'];
-		$connectionString = "Endpoint=$endpoint;SharedAccessKeyName=$sharedAccessName;SharedAccessKey=$sharedAccessKey";
-		return new AzureQueue(
-		ServicesBuilder::getInstance()->createServiceBusService($connectionString), $config['queue']);
-	}
+
+    public function connect(array $config)
+    {
+        $endpoint = $config['endpoint'];
+        $sharedAccessName = $config['SharedAccessKeyName'];
+        $sharedAccessKey = $config['SharedAccessKey'];
+        $shouldUseTopic = $config['UseTopic'] ?? false;
+        $connectionString = "Endpoint=$endpoint;SharedAccessKeyName=$sharedAccessName;SharedAccessKey=$sharedAccessKey";
+        $serviceBus = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
+        return $shouldUseTopic ? new AzureTopic($serviceBus, $config['queue']) :
+        new AzureQueue($serviceBus, $config['queue']);
+    }
 }

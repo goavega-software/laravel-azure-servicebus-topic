@@ -1,9 +1,9 @@
 <?php
 namespace Goavega\LaravelAzureServicebus;
 
-use Illuminate\Queue\Jobs\Job;
 use Illuminate\Container\Container;
 use Illuminate\Contracts\Queue\Job as JobContract;
+use Illuminate\Queue\Jobs\Job;
 use WindowsAzure\ServiceBus\Internal\IServiceBus;
 use WindowsAzure\ServiceBus\Models\BrokeredMessage;
 
@@ -15,21 +15,21 @@ class AzureJob extends Job implements JobContract
      * @var \WindowsAzure\ServiceBus\Internal\IServiceBus
      */
     protected $azure;
-    
+
     /**
      * The Azure ServiceBus job instance.
      *
      * @var \WindowsAzure\ServiceBus\Models\BrokeredMessage
      */
     protected $job;
-    
+
     /**
      * The queue that the job belongs to.
      *
      * @var string
      */
     protected $queue;
-    
+
     /**
      * Create a new job instance.
      *
@@ -47,15 +47,7 @@ class AzureJob extends Job implements JobContract
         $this->queue = $queue;
         $this->container = $container;
     }
-    
-    /**
-     * Fire the job.
-     */
-    public function fire()
-    {
-        $this->resolveAndFire(json_decode($this->getRawBody(), true));
-    }
-    
+
     /**
      * Delete the job from the queue.
      */
@@ -63,7 +55,7 @@ class AzureJob extends Job implements JobContract
     {
         $this->azure->deleteMessage($this->job);
     }
-    
+
     /**
      * Release the job back into the queue.
      *
@@ -77,7 +69,7 @@ class AzureJob extends Job implements JobContract
         $this->job->setScheduledEnqueueTimeUtc($release);
         $this->azure->unlockMessage($this->job);
     }
-    
+
     /**
      * Get the number of times the job has been attempted.
      *
@@ -87,7 +79,7 @@ class AzureJob extends Job implements JobContract
     {
         return $this->job->getDeliveryCount();
     }
-    
+
     /**
      * Get the IoC container instance.
      *
@@ -97,29 +89,29 @@ class AzureJob extends Job implements JobContract
     {
         return $this->container;
     }
-    
+
     /**
      * Get the underlying Azure client instance.
      *
      * @return \WindowsAzure\ServiceBus\Internal\IServiceBus
      */
-    
+
     public function getAzure()
     {
         return $this->azure;
     }
-    
+
     /**
      * Get the underlying raw Azure job.
      *
      * @return \WindowsAzure\ServiceBus\Models\BrokeredMessage
      */
-    
+
     public function getAzureJob()
     {
         return $this->job;
     }
-    
+
     /**
      * Get the raw body string for the job.
      *
