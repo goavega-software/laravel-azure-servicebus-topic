@@ -31,6 +31,12 @@ class AzureJob extends Job implements JobContract
     protected $queue;
 
     /**
+     * The raw payload on the queue.
+     *
+     * @var string
+     */
+    protected $rawMessage;
+    /**
      * Create a new job instance.
      *
      * @param \Illuminate\Container\Container                 $container
@@ -40,12 +46,13 @@ class AzureJob extends Job implements JobContract
      *
      * @return \Goavega\LaravelAzureServicebusTopic\AzureJob
      */
-    public function __construct(Container $container, IServiceBus $azure, BrokeredMessage $job, $queue)
+    public function __construct(Container $container, IServiceBus $azure, BrokeredMessage $job, $queue, string $rawMessage)
     {
         $this->azure = $azure;
         $this->job = $job;
         $this->queue = $queue;
         $this->container = $container;
+        $this->rawMessage = $rawMessage;
     }
 
     /**
@@ -53,6 +60,7 @@ class AzureJob extends Job implements JobContract
      */
     public function delete()
     {
+        parent::delete();
         $this->azure->deleteMessage($this->job);
     }
 
@@ -80,6 +88,15 @@ class AzureJob extends Job implements JobContract
         return $this->job->getDeliveryCount();
     }
 
+    /**
+     * Get the job identifier.
+     *
+     * @return string
+     */
+    public function getJobId()
+    {
+        return $this->job->getMessageId();
+    }
     /**
      * Get the IoC container instance.
      *
@@ -119,6 +136,6 @@ class AzureJob extends Job implements JobContract
      */
     public function getRawBody()
     {
-        return $this->job->getBody();
+        return $this->rawMessage;
     }
 }
