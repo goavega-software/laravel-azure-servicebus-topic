@@ -2,6 +2,7 @@
 namespace Goavega\LaravelAzureServicebus;
 
 use WindowsAzure\ServiceBus\Models\BrokeredMessage;
+use WindowsAzure\ServiceBus\Models\ReceiveMessageOptions;
 
 class AzureTopic extends ServiceBus
 {

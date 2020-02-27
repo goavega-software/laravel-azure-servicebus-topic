@@ -1,7 +1,7 @@
 {
     "name": "goavega-software/laravel-azure-servicebus",
     "description": "Extending the Laravel queue to support the Microsoft Azure Service Bus Queues & topics. Works with Laravel 5.6-5.8",
-    "version": "5.6",
+    "version": "5.6.1",
     "keywords": [
         "laravel",
         "azure",
@@ -30,7 +30,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Goavega\\LaravelAzureServicebus\\ServiceProvider"
+                "Goavega\\LaravelAzureServicebus\\Support\\ServiceProvider"
             ]
         }
     }
