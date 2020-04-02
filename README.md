@@ -3,6 +3,9 @@ Windows Azure Servicebus Queue driver for Laravel
 ### Overview
 The library provides support for both Service Bus queues and topic based messaging (topics haven't been tested yet on 5.x branch but should work). Default is Service Bus queues, for topic based messaging UseTopic should be set to true. The package should be auto discovered on Laravel > 5.6
 
+[![Latest Stable Version](https://poser.pugx.org/goavega-software/laravel-azure-servicebus/v/stable)](https://packagist.org/packages/goavega-software/laravel-azure-servicebus)
+[![Total Downloads](https://poser.pugx.org/goavega-software/laravel-azure-servicebus/downloads)](https://packagist.org/packages/goavega-software/laravel-azure-servicebus)
+[![License](https://poser.pugx.org/goavega-software/laravel-azure-servicebus/license)](https://packagist.org/packages/goavega-software/laravel-azure-servicebus)
 #### Installation
 
 Require this package in your `composer.json`:
