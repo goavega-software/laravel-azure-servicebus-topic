@@ -54,5 +54,5 @@ The package uses semantic versioning and tries to match Laravel versions.
 * Use version 2.x if you are on Laravel 5.5
 * Use version 5.x if you are on Laravel 5.6-5.8
 * 6.x if you are on Laravel 6.x
-#### Contribution
+* 7.x if you are on Laravel 7.x
 
