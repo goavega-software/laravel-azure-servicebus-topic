@@ -45,6 +45,8 @@ artisan worker should be started as per Laravel's official documentation:
 ```shell
 php artisan queue:listen azureservicebus --queue=queue-name
 ```
+### Azure Topic Support
+There is no support (yet) of automatically creating subscriptions on the Azure Topic. A known subscription identifier is instead used for the subscription and needs to be created manually on the service bus. The identifier is `6c7dd8f3e3e145a5b9782b41d741c951`
 
 ### Version compatiblity
 * Use version 2.x if you are on Laravel 5.5
