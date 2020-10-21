@@ -4,22 +4,22 @@ namespace Goavega\LaravelAzureServicebus;
 use Illuminate\Container\Container;
 use Illuminate\Contracts\Queue\Job as JobContract;
 use Illuminate\Queue\Jobs\Job;
-use WindowsAzure\ServiceBus\Internal\IServiceBus;
-use WindowsAzure\ServiceBus\Models\BrokeredMessage;
+use AzureServiceBus\ServiceBus\Internal\IServiceBus;
+use AzureServiceBus\ServiceBus\Models\BrokeredMessage;
 
 class AzureJob extends Job implements JobContract
 {
     /**
      * The Azure IServiceBus instance.
      *
-     * @var \WindowsAzure\ServiceBus\Internal\IServiceBus
+     * @var \AzureServiceBus\ServiceBus\Internal\IServiceBus
      */
     protected $azure;
 
     /**
      * The Azure ServiceBus job instance.
      *
-     * @var \WindowsAzure\ServiceBus\Models\BrokeredMessage
+     * @var \AzureServiceBus\ServiceBus\Models\BrokeredMessage
      */
     protected $job;
 
@@ -40,8 +40,8 @@ class AzureJob extends Job implements JobContract
      * Create a new job instance.
      *
      * @param \Illuminate\Container\Container                 $container
-     * @param \WindowsAzure\ServiceBus\Internal\IServiceBus   $azure
-     * @param \WindowsAzure\ServiceBus\Models\BrokeredMessage $job
+     * @param \AzureServiceBus\ServiceBus\Internal\IServiceBus   $azure
+     * @param \AzureServiceBus\ServiceBus\Models\BrokeredMessage $job
      * @param string                                          $queue
      *
      * @return \Goavega\LaravelAzureServicebusTopic\AzureJob
@@ -110,7 +110,7 @@ class AzureJob extends Job implements JobContract
     /**
      * Get the underlying Azure client instance.
      *
-     * @return \WindowsAzure\ServiceBus\Internal\IServiceBus
+     * @return \AzureServiceBus\ServiceBus\Internal\IServiceBus
      */
 
     public function getAzure()
@@ -121,7 +121,7 @@ class AzureJob extends Job implements JobContract
     /**
      * Get the underlying raw Azure job.
      *
-     * @return \WindowsAzure\ServiceBus\Models\BrokeredMessage
+     * @return \AzureServiceBus\ServiceBus\Models\BrokeredMessage
      */
 
     public function getAzureJob()

@@ -2,7 +2,7 @@
 namespace Goavega\LaravelAzureServicebus;
 
 use Illuminate\Queue\Connectors\ConnectorInterface;
-use WindowsAzure\Common\ServicesBuilder;
+use AzureServiceBus\Common\ServicesBuilder;
 
 class AzureConnector implements ConnectorInterface
 {

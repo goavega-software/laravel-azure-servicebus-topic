@@ -1,9 +1,9 @@
 <?php
 namespace Goavega\LaravelAzureServicebus;
 
-use WindowsAzure\ServiceBus\Models\BrokeredMessage;
-use WindowsAzure\ServiceBus\Models\ReceiveMessageOptions;
-use WindowsAzure\ServiceBus\Models\SubscriptionInfo;
+use AzureServiceBus\ServiceBus\Models\BrokeredMessage;
+use AzureServiceBus\ServiceBus\Models\ReceiveMessageOptions;
+use AzureServiceBus\ServiceBus\Models\SubscriptionInfo;
 
 class AzureTopic extends ServiceBus
 {
