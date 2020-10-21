@@ -55,4 +55,20 @@ The package uses semantic versioning and tries to match Laravel versions.
 * Use version 5.x if you are on Laravel 5.6-5.8
 * 6.x if you are on Laravel 6.x
 * 7.x if you are on Laravel 7.x
+* dev-master if you are on Laravel 8.x (see compat notes below)
 
+### Laravel 8x Support
+[*-Warning-*] This package relies on Windows-Azure SDK for PHP which has been abandoned and hasn't had an upgrade in last 2 years. This has resulted in incompatible dependencies (especiailly with GuzzleHttp - see #2). We've decided to fork the windows-azure package and just keep pieces of Service Bus. Since the fork is still not published (there are still few unit tests that fail and have to be verified if they fail due to invalid test cases or due to broken functionality), the only way to include this package for Laravel 8.x is by usng dev-master. 
+composer.json
+```json
+"repositories": [{
+        "type": "git",
+        "url": "https://github.com/sn123/azure-sdk-for-php.git"
+    }],
+"require: {
+        ...
+        "goavega-software/laravel-azure-servicebus": "dev-master"
+},
+
+```
+Rest everything should work the same as older laravels. 
