@@ -70,7 +70,7 @@ abstract class ServiceBus extends Queue implements QueueContract
      */
     public function push($job, $data = '', $queue = null)
     {
-        $this->pushRaw($this->createPayload($job, $data), $queue);
+        $this->pushRaw($this->createPayload($job, $queue, $data), $queue);
     }
 
     /**
