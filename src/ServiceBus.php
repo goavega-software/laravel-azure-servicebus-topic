@@ -102,7 +102,7 @@ abstract class ServiceBus extends Queue implements QueueContract
 
     public function later($delay, $job, $data = '', $queue = null)
     {
-        $payload = $this->createPayload($job, $data);
+        $payload = $this->createPayload($job, $queue, $data);
         $release = new \DateTime;
         $release->setTimezone(new \DateTimeZone('UTC'));
         $release->add(new \DateInterval('PT' . $delay . 'S'));
